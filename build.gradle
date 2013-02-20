@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+
+version = '1.0'
+
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.apache.shiro', name: 'shiro-core', version: '1.1.0'
+	compile group: 'org.springframework', name: 'spring-core', version: '3.2.1.RELEASE'
+	compile group: 'org.springframework', name: 'spring-webmvc', version: '3.2.0.RELEASE'
+	compile group: 'javax.servlet', name: 'jstl', version: '1.1.2'
+	compile group: 'taglibs', name: 'standard', version: '1.1.2'
+	compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
+	compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
+	compile group: 'org.apache.tiles', name: 'tiles-api', version: '2.2.2'
+	compile group: 'org.apache.tiles', name: 'tiles-core', version: '2.2.2'
+	compile group: 'org.apache.tiles', name: 'tiles-jsp', version: '2.2.2'
+	compile group: 'org.apache.tiles', name: 'tiles-servlet', version: '2.2.2'
+	compile group: 'org.apache.tiles', name: 'tiles-template', version: '2.2.2'
+	
+}
+
+war {
+    webInf { from 'src/webapp/WEB-INF' } // adds a file-set to the WEB-INF dir.
+   }
+   
